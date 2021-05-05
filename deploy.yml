@@ -1,0 +1,24 @@
+#base defination of kubernetes
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp3-deployment #this will create a deployment by this name
+
+
+spec: #we need to provide specification about this deployment
+  replicas: 3 #when i run this it will create three pod 
+  #how my deployment is going to manage those three pods. 
+  selector:
+    matchLabels:
+      app: myapp3
+  template:
+    metadata:
+      name: myapp3-pod
+      labels:
+        app: myapp3
+    spec:
+      containers:
+        - name: myapp3-container
+          image: stacksimplify/kubenginx:3.0.0
+          ports:
+            - containerPort: 80
