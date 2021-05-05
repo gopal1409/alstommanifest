@@ -20,6 +20,6 @@ spec: #we need to provide specification about this deployment
     spec:
       containers:
         - name: myapp3-container
-          image: stacksimplify/kubenginx:3.0.0
+          image: piuma/phpsysinfo
           ports:
             - containerPort: 80
