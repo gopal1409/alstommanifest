@@ -8,13 +8,14 @@ metadata:
 spec: #we need to provide specification about this deployment
   replicas: 3 #when i run this it will create three pod 
   #how my deployment is going to manage those three pods. 
-  selector:
-    matchLabels:
-      app: myapp3
-  template:
+  #how my deployment is going to manage those pod
+  selector: 
+    matchLabels: #it is like match expression
+      app: myapp3 #this is my lablel which is in the key :value format
+  template: #pod template inside your pod how container is going to be deployed
     metadata:
       name: myapp3-pod
-      labels:
+      labels: #
         app: myapp3
     spec:
       containers:
