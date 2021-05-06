@@ -1,0 +1,44 @@
+#base defination of kubernetes
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql #this will create a deployment by this name
+
+
+spec: #we need to provide specification about this deployment
+  replicas: 1 #when i run this it will create three pod 
+  #how my deployment is going to manage those three pods. 
+  #how my deployment is going to manage those pod
+  selector: 
+    matchLabels: #it is like match expression
+      app: mysql #this is my lablel which is in the key :value format
+  strategy:
+    type: Recreate
+  template: #pod template inside your pod how container is going to be deployed
+
+    metadata:
+      name: myapp3-pod
+      labels: #
+        app: mysql 
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:5.6 
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: dbpassword11
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql #inside your container
+            - name: usermanagement-dbcreation-script
+              mountPath: /docker-entrypoint-initdb.d #inside your container.
+      volumes: #kubernetes manged storage
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: azure-managed-disk-pvc
+        - name: usermanagement-dbcreation-script
+          configMap:
+            name: usermanagement-dbcreation-script
+
