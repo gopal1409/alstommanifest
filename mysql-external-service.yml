@@ -4,4 +4,4 @@ metadata:
   name: mysql
 spec:
   type: ExternalName
-  externalName: akswebappdbgopal.mysql.database.azure.com
+  externalName: e
