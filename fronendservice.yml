@@ -5,7 +5,7 @@ metadata:
   labels:
     app: usermgmt-webapp 
 spec: 
-  type: LoadBalancer
+  type: ClusterIP #it will not be accessable outside the k8s cluster. 
   selector:
     apps: usermgmt-webapp
   ports:
