@@ -13,7 +13,7 @@ spec:
             name: app1-nginx-clusterip-service
             port:
               number: 80
-      - path: /payment/
+      - path: /payment/ #absolute path of your application inside your container. 
         pathType: Prefix
         backend:
           service:
