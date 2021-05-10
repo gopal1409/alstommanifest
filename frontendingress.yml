@@ -6,14 +6,14 @@ spec:
   rules:
   - http:
       paths:
-      - path: /payment/
+      - path: /app1/
         pathType: Prefix
         backend:
           service:
             name: app1-nginx-clusterip-service
             port:
               number: 80
-      - path: /order/
+      - path: /app2/
         pathType: Prefix
         backend:
           service:
