@@ -13,11 +13,11 @@ spec:
             name: app1-nginx-clusterip-service
             port:
               number: 80
-      - path: /app2/
+      - path: /payment/
         pathType: Prefix
         backend:
           service:
-            name: app2-nginx-clusterip-service
+            name: payment-nginx-clusterip-service
             port:
               number: 80        
       - path: /
