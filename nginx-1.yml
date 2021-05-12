@@ -20,3 +20,12 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 80
+      nodeSelector:
+          kubernetes.io/role: agent 
+          beta.kubernetes.io/os: linux
+          type: virtual-kubelet
+      tolerations:
+        - key: virtual-kubelet.io/provider
+          operator: Exists
+        - key: azure.con/aci
+          effect: NoSchedule
