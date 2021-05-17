@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: payment
-          image: stacksimplify/kube-nginxapp2:1.0.0
+          image: acraksdemogd.azurecr.io/app1/kube-nginx-acr:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 80
